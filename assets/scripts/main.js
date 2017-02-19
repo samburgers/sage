@@ -2,6 +2,10 @@
 import 'jquery';
 import 'bootstrap';
 
+/** import Vue.js and Components */
+import {Vue, Components} from './vue/bootstrap';
+
+
 /** import local dependencies */
 import Router from './util/Router';
 import common from './routes/common';
@@ -20,6 +24,13 @@ const routes = new Router({
   /** About Us page, note the change from about-us to aboutUs. */
   aboutUs,
 });
+
+
+window.VueApp = new Vue({
+  el: '#vue-app',
+  components: Components,
+});
+
 
 /** Load Events */
 jQuery(document).ready(() => routes.loadEvents());

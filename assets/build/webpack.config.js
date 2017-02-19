@@ -25,6 +25,10 @@ let webpackConfig = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
         enforce: 'pre',
         test: /\.js?$/,
         include: config.paths.assets,
@@ -128,6 +132,11 @@ let webpackConfig = {
       filename: `styles/${assetsFilenames}.css`,
       allChunks: true,
       disable: (config.enabled.watcher),
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"development"'
+      }
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',

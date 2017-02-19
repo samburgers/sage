@@ -1,7 +1,7 @@
 <!doctype html>
 <html @php(language_attributes())>
   @include('partials.head')
-  <body @php(body_class())>
+  <body id="vue-app" @php(body_class())>
     @php(do_action('get_header'))
     @include('partials.header')
     <div class="wrap container" role="document">
